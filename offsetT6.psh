@@ -1,0 +1,3 @@
+#!/usr/bin/env psrsh
+
+fix epoch -0.00030684112149532706
