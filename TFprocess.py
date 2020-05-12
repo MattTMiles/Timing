@@ -20,38 +20,38 @@ os.chdir(MainDir)
 #Change to requested pulsar directory
 pulsar_dir = os.path.join(MainDir,pulsar)
 os.chdir(pulsar_dir)
+if not os.path.isfile("thisisdone"):
+        for obs in os.listdir(pulsar_dir):
+                if not obs.endswith(".mohsened"):
+                        if obs.startswith("2"):
+                                obs_dir = os.path.join(pulsar_dir, obs)
 
-for obs in os.listdir(pulsar_dir):
-    if not obs.endswith(".mohsened"):
-            if obs.startswith("2"):
-                obs_dir = os.path.join(pulsar_dir, obs)
+                                #Move through beam number directory
+                                beamno = os.listdir(obs_dir)[0]
+                                beamno_dir = os.path.join(obs_dir, beamno)
+                                os.chdir(beamno_dir)
 
-                #Move through beam number directory
-                beamno = os.listdir(obs_dir)[0]
-                beamno_dir = os.path.join(obs_dir, beamno)
-                os.chdir(beamno_dir)
+                                #Move through frequency directory
+                                freq = os.listdir(beamno_dir)[0]
+                                freq_dir = os.path.join(beamno_dir, freq)
+                                os.chdir(freq_dir)
 
-                #Move through frequency directory
-                freq = os.listdir(beamno_dir)[0]
-                freq_dir = os.path.join(beamno_dir, freq)
-                os.chdir(freq_dir)
+                                #Creates a p scrunched version
+                                #os.system("pam -p -e mohsenp *mohsen")
+                                #Creates a p and f scrunched version
+                                #os.system("pam -F -e mohsenFp *mohsenp")
+                                
+                                #Adds to create an observation F and p scrunched version
+                                #os.system("psradd *mohsenFp -o "+obs+".Fp")
+                                #Adds to create an observation T and P scrunched version
+                                os.system("psradd -T *mohsenp -o "+obs+".Tp")
 
-                #Creates a p scrunched version
-                #os.system("pam -p -e mohsenp *mohsen")
-                #Creates a p and f scrunched version
-                #os.system("pam -F -e mohsenFp *mohsenp")
-                
-                #Adds to create an observation F and p scrunched version
-                os.system("psradd *mohsenFp -o "+obs+".Fp")
-                #Adds to create an observation T and P scrunched version
-                #os.system("psradd -T *mohsenp -o "+obs+".Tp")
+                                #F scrunches the T scrunched version into 32 channels
+                                os.system("pam -f32 -e Tf32p *.Tp")
 
-                #F scrunches the T scrunched version into 32 channels
-                #os.system("pam -f32 -e Tf32p *.Tp")
+                                #os.system("mv *.Tf32p "+pulsar_dir+"/Tf32p")
+                                #os.system("mv *.Fp "+pulsar_dir+"/Fp")
 
-                #os.system("mv *.Tf32p "+pulsar_dir+"/Tf32p")
-                os.system("mv *.Fp "+pulsar_dir+"/Fp")
-
-os.chdir(os.path.join(pulsar_dir,"Fp"))
-os.system("pam -t8 -e Fpt8 *.Fp")
-os.system("pam -T -e FpT *.Fp")
+#os.chdir(os.path.join(pulsar_dir,"Fp"))
+#os.system("pam -t8 -e Fpt8 *.Fp")
+#os.system("pam -T -e FpT *.Fp")
