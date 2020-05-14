@@ -44,12 +44,12 @@ if not os.path.isfile("thisisdone"):
                                 #Adds to create an observation F and p scrunched version
                                 #os.system("psradd *mohsenFp -o "+obs+".Fp")
                                 #Adds to create an observation T and P scrunched version
-                                os.system("psradd -T *mohsenp -o "+obs+".Tp")
+                                #os.system("psradd -T *mohsenp -o "+obs+".Tp")
 
                                 #F scrunches the T scrunched version into 32 channels
-                                os.system("pam -f32 -e Tf32p *.Tp")
+                                #os.system("pam -f32 -e Tf32p *.Tp")
 
-                                #os.system("mv *.Tf32p "+pulsar_dir+"/Tf32p")
+                                os.system("mv *.Tf32p "+pulsar_dir+"/Tf32p")
                                 #os.system("mv *.Fp "+pulsar_dir+"/Fp")
 
 #os.chdir(os.path.join(pulsar_dir,"Fp"))
