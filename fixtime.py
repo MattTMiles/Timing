@@ -32,7 +32,7 @@ elif MJD >= 58693.500:
 
 Dir = os.getcwd()
 #Specify the extension of the files you want to alter
-ext = "Fp"
+ext = "Tf32p"
 for archive in os.listdir(Dir):
     if archive.startswith("20") and archive.endswith(ext):
         MJD = os.popen("psredit -c ext:stt_imjd "+archive+" -Q").read().split()[1]
