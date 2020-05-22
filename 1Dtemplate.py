@@ -20,6 +20,9 @@ pulsar = sys.argv[1]
 pulsar_dir = os.path.join(MainDir,pulsar)
 os.chdir(pulsar_dir)
 
+#Makes the directory for the files to live in
+os.system("mkdir Tf32p")
+Tf32p_dir = os.path.join(pulsar_dir,"Tf32p")
 #Entrance gate so the the terminal will check if one is already running/has run on this pulsar
 #if not os.path.isfile("started"):
 #Creating reference file to keep track of what's been done, kept in the main directory
@@ -33,6 +36,7 @@ for obs in os.listdir(pulsar_dir):
         if obs.startswith("2"):
             #Change to requested observation directory
             obs_dir = os.path.join(pulsar_dir, obs)
+            os.chdir(obs_dir)
 
             #Move through beam number directory
             beamno = os.listdir(obs_dir)[0]
@@ -44,18 +48,63 @@ for obs in os.listdir(pulsar_dir):
             freq_dir = os.path.join(beamno_dir, freq)
             os.chdir(freq_dir)
 
-            #This p,F, and T scrunches the data
-            os.system("pam -Tp -e mohsenTp *.mohsen")
-            
-            #This adds it into a single archive.
-            os.system("psradd *.mohsenTp -o 1D_"+obs+".Tp")
+            #This cleans the archives for use
+            dutycycle = os.system("cat "+pulsar_dir+"/dutycycle")
+            os.system("python /fred/oz005/users/mshamoha/federico/rfihunter_nogate.py 2*ar "+str(dutycycle))
 
+            #os.chdir(pulsar_dir)
+            checkfile = pulsar_dir + "/" +obs+".mohsened"
+            with open(checkfile,"w") as x:
+                x.write("this obs is mohsened")
+            
+            #Creates a p scrunched version
+            os.system("pam -p -e mohsenp *mohsen")
+            #Creates a p and f scrunched version
+            #os.system("pam -F -e mohsenFp *mohsenp")
+            
+            #Adds to create an observation T and P scrunched version
+            os.system("psradd -T *mohsenp -o "+obs+".Tp")
+
+            #F scrunches the T scrunched version into 32 channels
+            os.system("pam -f32 -e Tf32p *.Tp")
+
+            #os.system("pam -F -e TFp *.Tp")
+
+            os.system("mv *.Tf32p "+pulsar_dir+"/Tf32p")
+            #os.system("mv *.TFp "+pulsar_dir+"/Tf32p")
             #T scrunches the data again
             #os.system("pam -T -m *.Tp")
             #This moves the added file up to the pulsar directory
-            os.system("mv 1D_"+obs+".Tp "+pulsar_dir)
-            os.chdir(pulsar_dir)
+            #os.system("mv "+obs+".Tp "+pulsar_dir)
+            
+os.chdir(Tf32p_dir)
+#Put the same eph on all of them to create a reasonable profile
+#First apply the clock corrections
+os.system("python ~/soft/timing/fixtime.py")
 
+#Then create the totally F scrunched versions
+os.system("pam -F -e TFp *.Tf32p")
+
+#Grab an ephemeris, use try-except in case it doesn't exist so you know when to make one
+try:
+    os.system("cp /fred/oz005/users/aparthas/reprocessing_MK/PTA/pta_ephemerides/"+pulsar+".par .")
+except:
+    os.system("touch make.eph")
+#Apply this ephemeris
+os.system("pam -mE "+pulsar+".par *TFp *Tf32p")
+
+#Create the first pass at the standard profile for this - this will not be great quality, but not bad for a starting point
+os.system("psradd -TPF -o grand.TFp 20*TFp -ip")
+os.system("pam -mT grand.TFp")
+os.system("psrsmooth -W grand.TFp")
+os.system("mv grand.TFp.sm "+pulsar+".std")
+
+#And do a first pass at timing these
+os.system("pam -A FDM -f tempo2 -s *.std *.Tf32p")
+os.system("pam -A FDM -f tempo2 -s *.std *.TFp")
+
+
+'''
 #separate.py script - for separating the observations into their bandwidths   
 Tp_dir = os.path.join(pulsar_dir,"Tp_templates")
 try:
@@ -227,3 +276,4 @@ new_gof = new_gof.strip("1\n")
 #Writes the output to the comparison file
 os.system("echo "+pulsar+" "+str(old_gof)+" "+str(new_gof)+" >> "+MainDir+"/compfile")
 """
+'''
