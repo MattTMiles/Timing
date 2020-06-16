@@ -3,7 +3,9 @@ import glob
 import sys
 import errno
 
-#Let a user input a pulsar and observation to do this script indivdually
+#Creates profiles for the pulsars, as well as other data manipulation and cleaning
+
+####Very important note: This won't work unless it's in Python 2 and most modules are unloaded and reloaded in the bashrc that is called by the slurm scripts.#####
 
 
 MainDir = "/fred/oz002/users/mmiles/templates/"
@@ -19,79 +21,81 @@ pulsar = sys.argv[1]
 #Change to requested pulsar directory
 pulsar_dir = os.path.join(MainDir,pulsar)
 os.chdir(pulsar_dir)
+Tf32p_dir = os.path.join(pulsar_dir,"Tf32p")
 
 #Makes the directory for the files to live in
-os.system("mkdir Tf32p")
+#os.system("mkdir Tf32p")
 Tf32p_dir = os.path.join(pulsar_dir,"Tf32p")
 #Entrance gate so the the terminal will check if one is already running/has run on this pulsar
 #if not os.path.isfile("started"):
 #Creating reference file to keep track of what's been done, kept in the main directory
 #os.system("echo "+pulsar+" >> "+MainDir+"/1D_donefile")
-
+'''
 #Create file warning other terminals that pulsar has been started
 #os.system("echo started > started")
 for obs in os.listdir(pulsar_dir):
     if not obs.endswith(".mohsened"):
-        #if not os.path.isfile(obs+".mohsened"):
-        if obs.startswith("2"):
-            #Change to requested observation directory
-            obs_dir = os.path.join(pulsar_dir, obs)
-            os.chdir(obs_dir)
+        if not os.path.isfile(obs+".mohsened"):
+            if obs.startswith("2"):
+                #Change to requested observation directory
+                obs_dir = os.path.join(pulsar_dir, obs)
+                os.chdir(obs_dir)
 
-            #Move through beam number directory
-            beamno = os.listdir(obs_dir)[0]
-            beamno_dir = os.path.join(obs_dir, beamno)
-            os.chdir(beamno_dir)
+                #Move through beam number directory
+                beamno = os.listdir(obs_dir)[0]
+                beamno_dir = os.path.join(obs_dir, beamno)
+                os.chdir(beamno_dir)
 
-            #Move through frequency directory
-            freq = os.listdir(beamno_dir)[0]
-            freq_dir = os.path.join(beamno_dir, freq)
-            os.chdir(freq_dir)
+                #Move through frequency directory
+                freq = os.listdir(beamno_dir)[0]
+                freq_dir = os.path.join(beamno_dir, freq)
+                os.chdir(freq_dir)
 
-            #This cleans the archives for use
-            dutycycle = os.system("cat "+pulsar_dir+"/dutycycle")
-            os.system("python /fred/oz005/users/mshamoha/federico/rfihunter_nogate.py 2*ar "+str(dutycycle))
+                #This cleans the archives for use
+                dutycycle = os.popen("cat "+pulsar_dir+"/dutycycle").read().strip('\n')
+                os.system("python /fred/oz005/users/mshamoha/federico/rfihunter_nogate.py "+dutycycle+" 2*ar")
 
-            #os.chdir(pulsar_dir)
-            checkfile = pulsar_dir + "/" +obs+".mohsened"
-            with open(checkfile,"w") as x:
-                x.write("this obs is mohsened")
-            
-            #Creates a p scrunched version
-            os.system("pam -p -e mohsenp *mohsen")
-            #Creates a p and f scrunched version
-            #os.system("pam -F -e mohsenFp *mohsenp")
-            
-            #Adds to create an observation T and P scrunched version
-            os.system("psradd -T *mohsenp -o "+obs+".Tp")
+                #os.chdir(pulsar_dir)
+                checkfile = pulsar_dir + "/" +obs+".mohsened"
+                with open(checkfile,"w") as x:
+                    x.write("this obs is mohsened")
+                
+                #Creates a p scrunched version
+                os.system("pam -p -e mohsenp 2*mohsen")
+                #Creates a p and f scrunched version
+                #os.system("pam -F -e mohsenFp *mohsenp")
+                
+                #Adds to create an observation T and P scrunched version
+                os.system("psradd -T *mohsenp -o "+obs+".Tp")
 
-            #F scrunches the T scrunched version into 32 channels
-            os.system("pam -f32 -e Tf32p *.Tp")
+                #F scrunches the T scrunched version into 32 channels
+                os.system("pam -f32 -e Tf32p *.Tp")
 
-            #os.system("pam -F -e TFp *.Tp")
+                #os.system("pam -F -e TFp *.Tp")
 
-            os.system("mv *.Tf32p "+pulsar_dir+"/Tf32p")
-            #os.system("mv *.TFp "+pulsar_dir+"/Tf32p")
-            #T scrunches the data again
-            #os.system("pam -T -m *.Tp")
-            #This moves the added file up to the pulsar directory
-            #os.system("mv "+obs+".Tp "+pulsar_dir)
-            
+                os.system("mv *.Tf32p "+pulsar_dir+"/Tf32p")
+                #os.system("mv *.TFp "+pulsar_dir+"/Tf32p")
+                #T scrunches the data again
+                #os.system("pam -T -m *.Tp")
+                #This moves the added file up to the pulsar directory
+                #os.system("mv "+obs+".Tp "+pulsar_dir)
+'''        
 os.chdir(Tf32p_dir)
 #Put the same eph on all of them to create a reasonable profile
 #First apply the clock corrections
-os.system("python ~/soft/timing/fixtime.py")
+
+#os.system("python ~/soft/timing/fixtime.py")
 
 #Then create the totally F scrunched versions
-os.system("pam -F -e TFp *.Tf32p")
+#os.system("pam -F -e TFp *.Tf32p")
 
 #Grab an ephemeris, use try-except in case it doesn't exist so you know when to make one
-try:
-    os.system("cp /fred/oz005/users/aparthas/reprocessing_MK/PTA/pta_ephemerides/"+pulsar+".par .")
-except:
-    os.system("touch make.eph")
+#try:
+#    os.system("cp /fred/oz005/users/aparthas/reprocessing_MK/PTA/pta_ephemerides/"+pulsar+".par .")
+#except:
+#    os.system("touch make.eph")
 #Apply this ephemeris
-os.system("pam -mE "+pulsar+".par *TFp *Tf32p")
+os.system("pam -mE "+pulsar+".par --update_dm *TFp *Tf32p")
 
 #Create the first pass at the standard profile for this - this will not be great quality, but not bad for a starting point
 os.system("psradd -TPF -o grand.TFp 20*TFp -ip")
@@ -100,8 +104,8 @@ os.system("psrsmooth -W grand.TFp")
 os.system("mv grand.TFp.sm "+pulsar+".std")
 
 #And do a first pass at timing these
-os.system("pam -A FDM -f tempo2 -s *.std *.Tf32p")
-os.system("pam -A FDM -f tempo2 -s *.std *.TFp")
+#os.system("pat -A FDM -f tempo2 -s *.std 2*.Tf32p > Tf32p.tim")
+#os.system("pat -A FDM -f tempo2 -s *.std 2*.TFp > TFp.tim")
 
 
 '''

@@ -9,7 +9,7 @@ set dirname = $2
 #set ngulp = $5
 set base = $PWD
 
-foreach pulsar (`cat $2/the_rest.list`)
+foreach pulsar (`ls $2 | grep J`)
 	sbatch $slurm $pulsar
 end
 
