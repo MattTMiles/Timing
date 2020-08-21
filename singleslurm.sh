@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --cpus-per-task=1
-#SBATCH --time=04:00:00
-#SBATCH --job-name=SinglePulses
-#SBATCH --mem=20g
-#SBATCH --tmp=20g 
+#SBATCH --time=00:30:00
+#SBATCH --job-name=residual_creation
+#SBATCH --mem=1g
+#SBATCH --tmp=1g 
 
 
 #cd /fred/oz002/users/mmiles/timing/
@@ -16,7 +16,21 @@
 
 #rm -f ${1}".DMupdate"
 
-touch "singlepulse.collector"
-~/.conda/envs/py37/bin/python3.7 ~/soft/SP/SP_timephase.py
-rm -f "singlepulse.collector"
+
+source activate py2
+module load numpy/1.16.3-python-2.7.14
+module load scipy/1.0.0-python-2.7.14
+module load psrchive/1e36de3a8
+
+
+touch ${1}".2DTOA"
+bash residuals.sh $1
+#~/.conda/envs/py2/bin/python ~/soft/timing/2Dtemplate.py $1
+rm -f ${1}".2DTOA"
+
+#touch "bilby_another"
+#python ~/soft/SP/SP_bilby_true_parametized_real.py
+
+#rm -f "bilby_another"
+
 echo done

@@ -84,17 +84,20 @@ for obs in os.listdir(pulsarpath):
         pass
     #Make an if path to detect if there is already a .linked file present
     print('currently in directory: ', os.getcwd())
-    checkfile2 = mkdirpath2+'/done.txt'
-    print(checkfile2)
-    if os.path.isfile(checkfile2):
-        print(' done.txt exists')
-        print('already copied/linked %s archives for %s' %(filecount, obs))
-    else:
-        print('does not exist')
+    #checkfile2 = mkdirpath2+'/done.txt'
+    #print(checkfile2)
+    #if os.path.isfile(checkfile2):
+    #    print(' done.txt exists')
+    #    print('already copied/linked %s archives for %s' %(filecount, obs))
+    #else:
+        #print('does not exist')
         #Creating soft links to the MEERTIME directory from MATTIME
-        for archive in os.listdir(freqpath):
+    for archive in os.listdir(freqpath):
+        try:
             os.symlink(os.path.join(freqpath, archive), os.path.join(mkdirpath2, archive))
-        checkfile = mkdirpath2 + "/" + "done.txt" 
-        with open(checkfile,"w") as x:
-            x.write("this process has already been done")
+        except FileExistsError:
+            pass
+    checkfile = mkdirpath2 + "/" + "done.txt" 
+    with open(checkfile,"w") as x:
+        x.write("this process has already been done")
 

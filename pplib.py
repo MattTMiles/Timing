@@ -612,7 +612,9 @@ class DataPortrait(object):
                 for ipol in range(npol):
                     model_data[isub,ipol] = self.model
             unload_new_archive(model_data, self.arch, outfile, DM=0.0, dmc=0,
-                    weights=self.weights, quiet=quiet)
+                    weights=np.ones(np.shape(self.weights)), quiet=quiet)
+            #unload_new_archive(model_data, self.arch, outfile, DM=0.0, dmc=0,
+            #        weights=self.weights, quiet=quiet)
 
     def show_data_portrait(self, **kwargs):
         """

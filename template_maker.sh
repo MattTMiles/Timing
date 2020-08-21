@@ -54,7 +54,7 @@ paz -E 1 -e paz.port constant_profile.$NAME.$C_FREQ.Tp.port ;
 #Creates constant profile
 ~/.conda/envs/py2/bin/python /home/mmiles/soft/timing/ppalign.py -M metafile -T -I constant_profile.$NAME.$C_FREQ.Tp.paz.port -o metafile_average.$NAME.$C_FREQ.Tp.port --niter 2 ;
 #Creates the average metadata model
-~/.conda/envs/py2/bin/python /home/mmiles/soft/timing/ppspline.py -d metafile_average.$NAME.$C_FREQ.Tp.port -o 2D.spline.$NAME.$C_FREQ.spl -N prof -n 3 -s --plots -a 2D.portrait.$NAME.$C_FREQ.Tp.paz.port ;
+~/.conda/envs/py2/bin/python /home/mmiles/soft/timing/ppspline.py -d metafile_average.$NAME.$C_FREQ.Tp.port -o 2D.spline.$NAME.$C_FREQ.spl -N prof -s --plots -a 2D.portrait.$NAME.$C_FREQ.Tp.paz.port ;
 
 ### making difference plot:
 ~/.conda/envs/py2/bin/python /home/mmiles/soft/timing/make_residual_plots.py -m 2D.spline.$NAME.$C_FREQ.spl -d constant_profile.$NAME.$C_FREQ.Tp.paz.port --nowb -r 0.5 --showplot ;

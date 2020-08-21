@@ -13,8 +13,12 @@ foreach pulsar (`ls $2 | grep J`)
 	sbatch $slurm $pulsar
 end
 
-#foreach pulsar ()
-#sbatch $slurm J0437-4715
+#foreach pulsar (`cat $2`)
+#	sbatch $slurm $pulsar
+#end
+
+#foreach pulsar (J1754+0032)
+#	sbatch $slurm $pulsar
 #end
 
 #Megaslurm has been altered to work for each observation in J0437 in the code below, originial code is in lines above

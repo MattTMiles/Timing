@@ -21,64 +21,73 @@ pulsar = sys.argv[1]
 #Change to requested pulsar directory
 pulsar_dir = os.path.join(MainDir,pulsar)
 os.chdir(pulsar_dir)
-Tf32p_dir = os.path.join(pulsar_dir,"Tf32p")
 
 #Makes the directory for the files to live in
 #os.system("mkdir Tf32p")
+
 Tf32p_dir = os.path.join(pulsar_dir,"Tf32p")
+
+try:
+    os.mkdir(Tf32p_dir)
+except OSError as exc:
+    if exc.errno != errno.EEXIST:
+        raise
+    pass
 #Entrance gate so the the terminal will check if one is already running/has run on this pulsar
 #if not os.path.isfile("started"):
 #Creating reference file to keep track of what's been done, kept in the main directory
 #os.system("echo "+pulsar+" >> "+MainDir+"/1D_donefile")
-'''
+
 #Create file warning other terminals that pulsar has been started
 #os.system("echo started > started")
 for obs in os.listdir(pulsar_dir):
     if not obs.endswith(".mohsened"):
-        if not os.path.isfile(obs+".mohsened"):
-            if obs.startswith("2"):
-                #Change to requested observation directory
-                obs_dir = os.path.join(pulsar_dir, obs)
-                os.chdir(obs_dir)
+        #if not os.path.isfile(obs+".mohsened"):
+        if obs.startswith("2"):
+            #Change to requested observation directory
+            obs_dir = os.path.join(pulsar_dir, obs)
+            os.chdir(obs_dir)
 
-                #Move through beam number directory
-                beamno = os.listdir(obs_dir)[0]
-                beamno_dir = os.path.join(obs_dir, beamno)
-                os.chdir(beamno_dir)
+            #Move through beam number directory
+            beamno = os.listdir(obs_dir)[0]
+            beamno_dir = os.path.join(obs_dir, beamno)
+            os.chdir(beamno_dir)
 
-                #Move through frequency directory
-                freq = os.listdir(beamno_dir)[0]
-                freq_dir = os.path.join(beamno_dir, freq)
-                os.chdir(freq_dir)
+            #Move through frequency directory
+            freq = os.listdir(beamno_dir)[0]
+            freq_dir = os.path.join(beamno_dir, freq)
+            os.chdir(freq_dir)
 
-                #This cleans the archives for use
-                dutycycle = os.popen("cat "+pulsar_dir+"/dutycycle").read().strip('\n')
-                os.system("python /fred/oz005/users/mshamoha/federico/rfihunter_nogate.py "+dutycycle+" 2*ar")
+            #This cleans the archives for use
+            dutycycle = os.popen("cat "+pulsar_dir+"/dutycycle").read().strip('\n')
+            os.system("python /fred/oz005/users/mshamoha/federico/rfihunter_nogate.py "+dutycycle+" 2*ar")
 
-                #os.chdir(pulsar_dir)
-                checkfile = pulsar_dir + "/" +obs+".mohsened"
-                with open(checkfile,"w") as x:
-                    x.write("this obs is mohsened")
-                
-                #Creates a p scrunched version
-                os.system("pam -p -e mohsenp 2*mohsen")
-                #Creates a p and f scrunched version
-                #os.system("pam -F -e mohsenFp *mohsenp")
-                
-                #Adds to create an observation T and P scrunched version
-                os.system("psradd -T *mohsenp -o "+obs+".Tp")
+            #os.chdir(pulsar_dir)
+            checkfile = pulsar_dir + "/" +obs+".mohsened"
+            with open(checkfile,"w") as x:
+                x.write("this obs is mohsened")
+            
+            #Creates a p scrunched version
+            os.system("pam -p -e mohsenp 2*mohsen")
+        
+            #Creates a p and f scrunched version
+            #os.system("pam -F -e mohsenFp *mohsenp")
+            
+            #Adds to create an observation T and P scrunched version
+            os.system("psradd -T *mohsenp -o "+obs+".Tp -ip")
 
-                #F scrunches the T scrunched version into 32 channels
-                os.system("pam -f32 -e Tf32p *.Tp")
+            #F scrunches the T scrunched version into 32 channels
+            os.system("pam -f32 -e Tf32p *.Tp")
 
-                #os.system("pam -F -e TFp *.Tp")
+            os.system("pam -F -e TFp *.Tp")
 
-                os.system("mv *.Tf32p "+pulsar_dir+"/Tf32p")
-                #os.system("mv *.TFp "+pulsar_dir+"/Tf32p")
-                #T scrunches the data again
-                #os.system("pam -T -m *.Tp")
-                #This moves the added file up to the pulsar directory
-                #os.system("mv "+obs+".Tp "+pulsar_dir)
+            os.system("mv *.Tf32p "+pulsar_dir+"/Tf32p")
+            os.system("mv *.TFp "+pulsar_dir+"/Tf32p")
+            #T scrunches the data again
+            #os.system("pam -T -m *.Tp")
+            #This moves the added file up to the pulsar directory
+            #os.system("mv "+obs+".Tp "+pulsar_dir)
+'''
 '''        
 os.chdir(Tf32p_dir)
 #Put the same eph on all of them to create a reasonable profile
@@ -95,14 +104,18 @@ os.chdir(Tf32p_dir)
 #except:
 #    os.system("touch make.eph")
 #Apply this ephemeris
-os.system("pam -mE "+pulsar+".par --update_dm *TFp *Tf32p")
+
+#Ephemeris directory
+#eph_dir = "/fred/oz002/users/mmiles/templates/msp_ephemerides"
+
+#os.system("pam -mE "+eph_dir+"/"+pulsar+".par --update_dm *TFp *Tf32p")
 
 #Create the first pass at the standard profile for this - this will not be great quality, but not bad for a starting point
 os.system("psradd -TPF -o grand.TFp 20*TFp -ip")
 os.system("pam -mT grand.TFp")
 os.system("psrsmooth -W grand.TFp")
-os.system("mv grand.TFp.sm "+pulsar+".std")
-
+os.system("mv *sm "+pulsar+".std")
+os.system("cp "+pulsar+".std /fred/oz002/users/mmiles/templates/staging")
 #And do a first pass at timing these
 #os.system("pat -A FDM -f tempo2 -s *.std 2*.Tf32p > Tf32p.tim")
 #os.system("pat -A FDM -f tempo2 -s *.std 2*.TFp > TFp.tim")
