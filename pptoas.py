@@ -20,7 +20,7 @@ from pptoaslib import *
 #touches the archive, I am not sure how to close the files.  So, to avoid the
 #loop crashing, set a maximum number of archives for pptoas.  Modern machines
 #should be able to handle almost 1000.
-max_nfile = 999
+max_nfile = 100000
 
 #See F0_fact in pplib.py
 if F0_fact:

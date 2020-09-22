@@ -11,7 +11,7 @@ import sys
 print('this is the update script for creating the initial template data')
 
 #Changing directory
-chdirpath1 = "/fred/oz002/users/mmiles/templates"
+chdirpath1 = "/fred/oz002/users/mmiles/templates/2D_Templates"
 os.chdir(chdirpath1)
 
 #cwd = os.getcwd()
@@ -22,15 +22,15 @@ pulsar = sys.argv[1]
 #print({pulsar})
 
 #Make a directory for the data under MATTIME
-mkdirpath1 = os.path.join(chdirpath1, pulsar)
+pulsar_dir = os.path.join(chdirpath1, pulsar)
 
-#This exception just skips over the pulsars that are already written
-#try:
-#    os.mkdir(mkdirpath1)
-#except OSError as exc:
-#    if exc.errno != errno.EEXIST:
-#        raise
-#    pass
+#Creates a timing directory
+try:
+    os.mkdir(os.path.join(pulsar_dir,"timing"))
+except FileExistsError:
+    pass
+
+timing_dir = os.path.join(pulsar_dir,"timing")
 #Change into the directory where all the data is
 timing = "/fred/oz005/timing/"
 
@@ -46,7 +46,7 @@ os.chdir(pulsarpath)
 print('In this directory', os.getcwd())
 
 #Create a for loop for the observations and roll through these
-for obs in os.listdir(pulsarpath):
+for obs in sorted(os.listdir(pulsarpath)):
     observationpath = os.path.join(pulsarpath,obs)
     #Move into the direcotry for the individual observation
     os.chdir(observationpath)
@@ -75,15 +75,7 @@ for obs in os.listdir(pulsarpath):
     print('creating soft links and directory')
     
     #Make a directory in MATTIME based on the information in the MEERTIME directory traced above
-    mkdirpath2 = os.path.join(mkdirpath1, obs, beamno, freq)
-    try:
-        os.makedirs(mkdirpath2)
-    except OSError as exc:
-        if exc.errno != errno.EEXIST:
-            raise
-        pass
     #Make an if path to detect if there is already a .linked file present
-    print('currently in directory: ', os.getcwd())
     #checkfile2 = mkdirpath2+'/done.txt'
     #print(checkfile2)
     #if os.path.isfile(checkfile2):
@@ -94,10 +86,29 @@ for obs in os.listdir(pulsarpath):
         #Creating soft links to the MEERTIME directory from MATTIME
     for archive in os.listdir(freqpath):
         try:
-            os.symlink(os.path.join(freqpath, archive), os.path.join(mkdirpath2, archive))
+            os.symlink(os.path.join(freqpath, archive), os.path.join(timing_dir, archive))
         except FileExistsError:
             pass
-    checkfile = mkdirpath2 + "/" + "done.txt" 
-    with open(checkfile,"w") as x:
-        x.write("this process has already been done")
+    
+os.chdir(timing_dir)
+#This cleans the .ar files and changes them to .r
+for archives in sorted(os.listdir(timing_dir)):
+    if archives.endswith(".ar"):
+        if not os.path.isfile(archives.strip("ar")+"r"):
+            os.system("paz -r -e r "+archives)
+#p and T scrunch
+for archives in sorted(os.listdir(timing_dir)):
+    if archives.endswith(".r"):
+        if not os.path.isfile(archives.strip("r")+"Tp"):
+            os.system("pam -Tp -e Tp "+archives)
+#F scrunch down to 8 subbands
+for archives in sorted(os.listdir(timing_dir)):
+    if archives.endswith(".Tp"):
+        if not os.path.isfile(archives.strip("Tp")+"Tpf128"):
+            os.system("pam -f128 -e Tpf128 "+archives)
+
+for archives in sorted(os.listdir(timing_dir)):
+    if archives.endswith(".Tp"):
+        if not os.path.isfile(archives.strip("Tp")+"TpF"):
+            os.system("pam -F -e TpF "+archives)
 

@@ -33,6 +33,8 @@ except ImportError: print("No lmfit found.  You will not be able to use ppgauss.
 try: import pywt as pw
 except ImportError: print("No pywt found.  You will not be able to use wavelet_smooth() and will have limited, no-smoothing functionality in ppspline.py.")
 import psrchive as pr
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.gridspec as gs
 import matplotlib.pyplot as plt
 from telescope_codes import telescope_code_dict

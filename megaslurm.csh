@@ -9,11 +9,12 @@ set dirname = $2
 #set ngulp = $5
 set base = $PWD
 
-foreach pulsar (`ls $2 | grep J`)
+#foreach pulsar (`ls $2 | grep J`)
+foreach pulsar (`cat toa.list`)
 	sbatch $slurm $pulsar
 end
 
-#foreach pulsar (`cat $2`)
+#foreach pulsar (J0955-6150 J1757-1854)
 #	sbatch $slurm $pulsar
 #end
 
