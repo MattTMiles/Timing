@@ -11,12 +11,13 @@ import sys
 print('this is the update script for creating the initial template data')
 
 #Changing directory
-chdirpath1 = "/fred/oz002/users/mmiles/templates/2D_Templates"
+chdirpath1 = "/fred/oz002/users/mmiles/templates/"
 os.chdir(chdirpath1)
 
 #cwd = os.getcwd()
 #targets = open("the_rest.list")
 pulsar = sys.argv[1]
+print(pulsar)
 #for pulsar in targets:
 #pulsar = pulsar.strip(' \n')
 #print({pulsar})

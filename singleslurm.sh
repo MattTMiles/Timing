@@ -1,27 +1,28 @@
 #!/bin/bash
-#SBATCH --cpus-per-task=16
-#SBATCH --time=48:00:00
-#SBATCH --job-name=bilby 
-#SBATCH --mem=15gb
-#SBATCH --tmp=15gb
+#SBATCH --cpus-per-task=1
+#SBATCH --time=20:00:00
+#SBATCH --job-name=pol_data
+#SBATCH --mem=5gb
+#SBATCH --tmp=5gb
 
 ##In order to batch the pulse portraiture codes, this needs to be uncommented
-#ource activate py2
+#source activate py2
 #module load numpy/1.16.3-python-2.7.14
 #module load scipy/1.0.0-python-2.7.14
 #module load psrchive/1e36de3a8
 #module load matplotlib/2.2.2-python-2.7.14
 
-#touch ${1}".pptoa"
+source activate py37
+touch ${1}".pol_data"
 #bash ~/soft/timing/residuals.sh $1
-#~/.conda/envs/py2/bin/python ~/soft/timing/2Dtoa.py $1
-#python ~/soft/timing/TOA.py $1
+python ~/soft/SP/pol_analysis.py
 #python ~/soft/timing/template_update.py $1
-#rm -f ${1}".pptoa"
+#python ~/soft/SP/SP_bilby_true_parametized_real.py
+rm -f ${1}".pol_data"
 
-touch "bilby_triplemodel"
-python ~/soft/SP/SP_bilby_true_parametized_real.py
+#touch "quickmove"
+#python ~/soft/SP/SP_strongstate.py
 
-rm -f "bilby_triplemodel"
+#rm -f "quickmove"
 
 echo done

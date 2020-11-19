@@ -10,7 +10,7 @@ set dirname = $2
 set base = $PWD
 
 #foreach pulsar (`ls $2 | grep J`)
-foreach pulsar (`cat toa.list`)
+foreach pulsar (`cat npntim.list`)
 	sbatch $slurm $pulsar
 end
 

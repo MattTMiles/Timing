@@ -1,0 +1,375 @@
+which: no fi_info in (/home/mmiles/.conda/envs/py37/bin:/apps/skylake/software/numpy/1.18.2-gnu-2018.0-Python-3.7.4/bin:/apps/skylake/software/Cython/0.29.16-gnu-2018.0-Python-3.7.4/bin:/apps/skylake/software/Python/3.7.4-gnu-2018.0/bin:/apps/skylake/software/compiler/gcc/6.4.0/openblas/0.2.20/bin:/apps/skylake/software/core/git/2.18.0/bin:/apps/skylake/software/core/anaconda3/5.0.1:/apps/skylake/software/core/anaconda3/5.0.1/bin:/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/astropy/2.0.3-python-2.7.14/bin:/apps/skylake/software/core/cuda/9.0.176:/apps/skylake/software/core/cuda/9.0.176/bin:/apps/skylake/software/SQLite/3.21.0-gnu-2018.0/bin:/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/fftw/3.3.7/bin:/apps/skylake/software/compiler/gcc/6.4.0/gsl/2.4/bin:/apps/skylake/software/OpenMPI/3.0.0-GCC-6.4.0/bin:/apps/skylake/software/core/ifort/2016.2.181-gcc-6.4.0/compilers_and_libraries_2016.2.181/linux/bin/intel64:/apps/skylake/software/core/icc/2016.2.181-gcc-6.4.0/compilers_and_libraries_2016.2.181/linux/bin/intel64:/apps/skylake/software/core/gcccore/6.4.0/bin:/apps/skylake/software/core/binutils/2.30/bin:/opt/nvidia/latest/usr/bin:/apps/slurm/latest/sbin:/apps/slurm/latest/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/apps/users/pulsar/skylake/software/psr_cfitsio/3.450/bin:/apps/users/pulsar/skylake/software/fftw-SP/3.3.8/bin:/apps/users/pulsar/skylake/software/psrxml/1.01/bin:/apps/users/pulsar/skylake/software/sofa/20180130/bin:/apps/users/pulsar/skylake/software/heimdall/135348b/bin:/apps/users/pulsar/skylake/software/dedisp/9850b7e/bin:/apps/users/pulsar/skylake/software/thrust/1.7.0/bin:/apps/users/pulsar/skylake/software/psrdada/10513ff/bin:/apps/users/pulsar/skylake/software/dspsr/0abe673a/bin:/apps/users/pulsar/skylake/software/presto/d6265c2/bin:/apps/users/pulsar/skylake/software/tempo/73e9ce3/bin:/apps/users/pulsar/skylake/software/sigproc/fd66349/bin:/apps/users/pulsar/skylake/software/sigpyproc/e003fdf/bin:/apps/users/pulsar/skylake/software/pfits/39f27e1/bin:/apps/users/pulsar/skylake/software/psrchive/f387fd299-python-3.6.4/bin:/apps/users/pulsar/skylake/software/psrcat/1.49/bin:/apps/users/pulsar/skylake/software/tempo2/b381f57/bin:/apps/users/pulsar/skylake/software/calceph/2.3.2/bin:/apps/users/pulsar/skylake/software/fftw-DP/3.3.8/bin:/apps/users/pulsar/skylake/software/epsic/5315cc6/bin)
+2020-08-29-14:44:16.TpF written to disk
+2020-08-29-14:44:24.TpF written to disk
+2020-08-29-14:44:32.TpF written to disk
+2020-08-29-14:44:40.TpF written to disk
+2020-08-29-14:44:48.TpF written to disk
+2020-08-29-14:44:56.TpF written to disk
+2020-08-29-14:45:04.TpF written to disk
+2020-08-29-14:45:12.TpF written to disk
+2020-08-29-14:45:20.TpF written to disk
+2020-08-29-14:45:28.TpF written to disk
+2020-08-29-14:45:36.TpF written to disk
+2020-08-29-14:45:44.TpF written to disk
+2020-08-29-14:45:52.TpF written to disk
+2020-08-29-14:46:00.TpF written to disk
+2020-08-29-14:46:08.TpF written to disk
+2020-08-29-14:46:16.TpF written to disk
+2020-08-29-14:46:24.TpF written to disk
+2020-08-29-14:46:32.TpF written to disk
+2020-08-29-14:46:40.TpF written to disk
+2020-08-29-14:46:48.TpF written to disk
+2020-08-29-14:46:56.TpF written to disk
+2020-08-29-14:47:04.TpF written to disk
+2020-08-29-14:47:12.TpF written to disk
+2020-08-29-14:47:20.TpF written to disk
+2020-08-29-14:47:28.TpF written to disk
+2020-08-29-14:47:36.TpF written to disk
+2020-08-29-14:47:44.TpF written to disk
+2020-08-29-14:47:52.TpF written to disk
+2020-09-16-15:35:12.TpF written to disk
+2020-09-16-15:35:20.TpF written to disk
+2020-09-16-15:35:28.TpF written to disk
+2020-09-16-15:35:36.TpF written to disk
+2020-09-16-15:35:44.TpF written to disk
+2020-09-16-15:35:52.TpF written to disk
+2020-09-16-15:36:00.TpF written to disk
+2020-09-16-15:36:08.TpF written to disk
+2020-09-16-15:36:16.TpF written to disk
+2020-09-16-15:36:24.TpF written to disk
+2020-09-16-15:36:32.TpF written to disk
+2020-09-16-15:36:40.TpF written to disk
+2020-09-16-15:36:48.TpF written to disk
+2020-09-16-15:36:56.TpF written to disk
+2020-09-16-15:37:04.TpF written to disk
+2020-09-16-15:37:12.TpF written to disk
+2020-09-16-15:37:20.TpF written to disk
+2020-09-16-15:37:28.TpF written to disk
+2020-09-16-15:37:36.TpF written to disk
+2020-09-16-15:37:44.TpF written to disk
+2020-09-16-15:37:52.TpF written to disk
+2020-09-16-15:38:00.TpF written to disk
+2020-09-16-15:38:08.TpF written to disk
+2020-09-16-15:38:16.TpF written to disk
+2020-09-16-15:38:24.TpF written to disk
+2020-09-16-15:38:32.TpF written to disk
+2020-09-16-15:38:40.TpF written to disk
+2020-09-16-15:38:48.TpF written to disk
+2020-09-16-15:38:56.TpF written to disk
+2020-09-16-15:39:04.TpF written to disk
+2020-09-16-15:39:12.TpF written to disk
+2020-09-16-15:39:20.TpF written to disk
+2020-09-16-15:39:28.TpF written to disk
+2020-09-29-15:33:20.TpF written to disk
+2020-09-29-15:33:28.TpF written to disk
+2020-09-29-15:33:36.TpF written to disk
+2020-09-29-15:33:44.TpF written to disk
+2020-09-29-15:33:52.TpF written to disk
+2020-09-29-15:34:00.TpF written to disk
+2020-09-29-15:34:08.TpF written to disk
+2020-09-29-15:34:16.TpF written to disk
+2020-09-29-15:34:24.TpF written to disk
+2020-09-29-15:34:32.TpF written to disk
+2020-09-29-15:34:40.TpF written to disk
+2020-09-29-15:34:48.TpF written to disk
+2020-09-29-15:34:56.TpF written to disk
+2020-09-29-15:35:04.TpF written to disk
+2020-09-29-15:35:12.TpF written to disk
+2020-09-29-15:35:20.TpF written to disk
+2020-09-29-15:35:28.TpF written to disk
+2020-09-29-15:35:36.TpF written to disk
+2020-09-29-15:35:44.TpF written to disk
+2020-09-29-15:35:52.TpF written to disk
+2020-09-29-15:36:00.TpF written to disk
+2020-09-29-15:36:08.TpF written to disk
+2020-09-29-15:36:16.TpF written to disk
+2020-09-29-15:36:24.TpF written to disk
+2020-09-29-15:36:32.TpF written to disk
+2020-09-29-15:36:40.TpF written to disk
+2020-09-29-15:36:48.TpF written to disk
+2020-09-29-15:36:56.TpF written to disk
+2020-09-29-15:37:04.TpF written to disk
+2020-09-29-15:37:12.TpF written to disk
+2020-09-29-15:37:20.TpF written to disk
+2020-09-29-15:37:28.TpF written to disk
+2020-09-29-15:37:36.TpF written to disk
+2020-10-11-08:50:00.TpF written to disk
+2020-10-11-08:50:08.TpF written to disk
+2020-10-11-08:50:16.TpF written to disk
+2020-10-11-08:50:24.TpF written to disk
+2020-10-11-08:50:32.TpF written to disk
+2020-10-11-08:50:40.TpF written to disk
+2020-10-11-08:50:48.TpF written to disk
+2020-10-11-08:50:56.TpF written to disk
+2020-10-11-08:51:04.TpF written to disk
+2020-10-11-08:51:12.TpF written to disk
+2020-10-11-08:51:20.TpF written to disk
+2020-10-11-08:51:28.TpF written to disk
+2020-10-11-08:51:36.TpF written to disk
+2020-10-11-08:51:44.TpF written to disk
+2020-10-11-08:51:52.TpF written to disk
+2020-10-11-08:52:00.TpF written to disk
+2020-10-11-08:52:08.TpF written to disk
+2020-10-11-08:52:16.TpF written to disk
+2020-10-11-08:52:24.TpF written to disk
+2020-10-11-08:52:32.TpF written to disk
+2020-10-11-08:52:40.TpF written to disk
+2020-10-11-08:52:48.TpF written to disk
+2020-10-11-08:52:56.TpF written to disk
+2020-10-11-08:53:04.TpF written to disk
+2020-10-11-08:53:12.TpF written to disk
+2020-10-11-08:53:20.TpF written to disk
+2020-10-11-08:53:28.TpF written to disk
+2020-10-11-08:53:36.TpF written to disk
+2020-10-11-08:53:44.TpF written to disk
+2020-10-11-08:53:52.TpF written to disk
+2020-10-11-08:54:00.TpF written to disk
+2020-10-11-08:54:08.TpF written to disk
+2020-10-11-08:54:16.TpF written to disk
+2020-10-23-06:45:36.TpF written to disk
+2020-10-23-06:45:44.TpF written to disk
+2020-10-23-06:45:52.TpF written to disk
+2020-10-23-06:46:00.TpF written to disk
+2020-10-23-06:46:08.TpF written to disk
+2020-10-23-06:46:16.TpF written to disk
+2020-10-23-06:46:24.TpF written to disk
+2020-10-23-06:46:32.TpF written to disk
+2020-10-23-06:46:40.TpF written to disk
+2020-10-23-06:46:48.TpF written to disk
+2020-10-23-06:46:56.TpF written to disk
+2020-10-23-06:47:04.TpF written to disk
+2020-10-23-06:47:12.TpF written to disk
+2020-10-23-06:47:20.TpF written to disk
+2020-10-23-06:47:28.TpF written to disk
+2020-10-23-06:47:36.TpF written to disk
+2020-10-23-06:47:44.TpF written to disk
+2020-10-23-06:47:52.TpF written to disk
+2020-10-23-06:48:00.TpF written to disk
+2020-10-23-06:48:08.TpF written to disk
+2020-10-23-06:48:16.TpF written to disk
+2020-10-23-06:48:24.TpF written to disk
+2020-10-23-06:48:32.TpF written to disk
+2020-10-23-06:48:40.TpF written to disk
+2020-10-23-06:48:48.TpF written to disk
+2020-10-23-06:48:56.TpF written to disk
+2020-10-23-06:49:04.TpF written to disk
+2020-10-23-06:49:12.TpF written to disk
+2020-10-23-06:49:20.TpF written to disk
+2020-10-23-06:49:28.TpF written to disk
+2020-10-23-06:49:36.TpF written to disk
+2020-10-23-06:49:44.TpF written to disk
+2020-10-23-06:49:52.TpF written to disk
+2020-11-04-06:04:40.TpF written to disk
+2020-11-04-06:04:48.TpF written to disk
+2020-11-04-06:04:56.TpF written to disk
+2020-11-04-06:05:04.TpF written to disk
+2020-11-04-06:05:12.TpF written to disk
+2020-11-04-06:05:20.TpF written to disk
+2020-11-04-06:05:28.TpF written to disk
+2020-11-04-06:05:36.TpF written to disk
+2020-11-04-06:05:44.TpF written to disk
+2020-11-04-06:05:52.TpF written to disk
+2020-11-04-06:06:00.TpF written to disk
+2020-11-04-06:06:08.TpF written to disk
+2020-11-04-06:06:16.TpF written to disk
+2020-11-04-06:06:24.TpF written to disk
+2020-11-04-06:06:32.TpF written to disk
+2020-11-04-06:06:40.TpF written to disk
+2020-11-04-06:06:48.TpF written to disk
+2020-11-04-06:06:56.TpF written to disk
+2020-11-04-06:07:04.TpF written to disk
+2020-11-04-06:07:12.TpF written to disk
+2020-11-04-06:07:20.TpF written to disk
+2020-11-04-06:07:28.TpF written to disk
+2020-11-04-06:07:36.TpF written to disk
+2020-11-04-06:07:44.TpF written to disk
+2020-11-04-06:07:52.TpF written to disk
+2020-11-04-06:08:00.TpF written to disk
+2020-11-04-06:08:08.TpF written to disk
+2020-11-04-06:08:16.TpF written to disk
+2020-11-04-06:08:24.TpF written to disk
+2020-11-04-06:08:32.TpF written to disk
+2020-11-04-06:08:40.TpF written to disk
+2020-11-04-06:08:48.TpF written to disk
+2020-11-10-05:09:52.TpF written to disk
+2020-11-10-05:10:00.TpF written to disk
+2020-11-10-05:10:08.TpF written to disk
+2020-11-10-05:10:16.TpF written to disk
+2020-11-10-05:10:24.TpF written to disk
+2020-11-10-05:10:32.TpF written to disk
+2020-11-10-05:10:40.TpF written to disk
+2020-11-10-05:10:48.TpF written to disk
+2020-11-10-05:10:56.TpF written to disk
+2020-11-10-05:11:04.TpF written to disk
+2020-11-10-05:11:12.TpF written to disk
+2020-11-10-05:11:20.TpF written to disk
+2020-11-10-05:11:28.TpF written to disk
+2020-11-10-05:11:36.TpF written to disk
+2020-11-10-05:11:44.TpF written to disk
+2020-11-10-05:11:52.TpF written to disk
+2020-11-10-05:12:00.TpF written to disk
+2020-11-10-05:12:08.TpF written to disk
+2020-11-10-05:12:16.TpF written to disk
+2020-11-10-05:12:24.TpF written to disk
+2020-11-10-05:12:32.TpF written to disk
+2020-11-10-05:12:40.TpF written to disk
+2020-11-10-05:12:48.TpF written to disk
+2020-11-10-05:12:56.TpF written to disk
+2020-11-10-05:13:04.TpF written to disk
+2020-11-10-05:13:12.TpF written to disk
+2020-11-10-05:13:20.TpF written to disk
+2020-11-10-05:13:28.TpF written to disk
+2020-11-10-05:13:36.TpF written to disk
+2020-11-10-05:13:44.TpF written to disk
+2020-11-10-05:13:52.TpF written to disk
+2020-11-10-05:14:00.TpF written to disk
+2020-11-10-05:14:08.TpF written to disk
+this is the update script for creating the initial template data
+J1103-5403
+In this directory /fred/oz005/timing
+In this directory /fred/oz005/timing/J1103-5403
+In this directory /fred/oz005/timing/J1103-5403/2019-04-16-21:48:09
+In this directory /fred/oz005/timing/J1103-5403/2019-04-16-21:48:09/1
+In this directory /fred/oz005/timing/J1103-5403/2019-04-16-21:48:09/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2019-04-22-16:46:41
+In this directory /fred/oz005/timing/J1103-5403/2019-04-22-16:46:41/1
+In this directory /fred/oz005/timing/J1103-5403/2019-04-22-16:46:41/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2019-07-01-13:27:38
+In this directory /fred/oz005/timing/J1103-5403/2019-07-01-13:27:38/1
+In this directory /fred/oz005/timing/J1103-5403/2019-07-01-13:27:38/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2019-08-02-16:29:58
+In this directory /fred/oz005/timing/J1103-5403/2019-08-02-16:29:58/1
+In this directory /fred/oz005/timing/J1103-5403/2019-08-02-16:29:58/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2019-09-04-16:13:20
+In this directory /fred/oz005/timing/J1103-5403/2019-09-04-16:13:20/1
+In this directory /fred/oz005/timing/J1103-5403/2019-09-04-16:13:20/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2019-09-07-12:26:45
+In this directory /fred/oz005/timing/J1103-5403/2019-09-07-12:26:45/1
+In this directory /fred/oz005/timing/J1103-5403/2019-09-07-12:26:45/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2019-09-29-08:31:56
+In this directory /fred/oz005/timing/J1103-5403/2019-09-29-08:31:56/1
+In this directory /fred/oz005/timing/J1103-5403/2019-09-29-08:31:56/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2019-10-26-07:06:53
+In this directory /fred/oz005/timing/J1103-5403/2019-10-26-07:06:53/1
+In this directory /fred/oz005/timing/J1103-5403/2019-10-26-07:06:53/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2019-11-06-03:11:37
+In this directory /fred/oz005/timing/J1103-5403/2019-11-06-03:11:37/1
+In this directory /fred/oz005/timing/J1103-5403/2019-11-06-03:11:37/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2019-11-26-06:36:29
+In this directory /fred/oz005/timing/J1103-5403/2019-11-26-06:36:29/1
+In this directory /fred/oz005/timing/J1103-5403/2019-11-26-06:36:29/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2019-12-15-05:32:28
+In this directory /fred/oz005/timing/J1103-5403/2019-12-15-05:32:28/1
+In this directory /fred/oz005/timing/J1103-5403/2019-12-15-05:32:28/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-01-05-01:07:56
+In this directory /fred/oz005/timing/J1103-5403/2020-01-05-01:07:56/1
+In this directory /fred/oz005/timing/J1103-5403/2020-01-05-01:07:56/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-01-20-20:34:21
+In this directory /fred/oz005/timing/J1103-5403/2020-01-20-20:34:21/1
+In this directory /fred/oz005/timing/J1103-5403/2020-01-20-20:34:21/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-02-03-01:37:28
+In this directory /fred/oz005/timing/J1103-5403/2020-02-03-01:37:28/1
+In this directory /fred/oz005/timing/J1103-5403/2020-02-03-01:37:28/1/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-02-18-04:07:47
+In this directory /fred/oz005/timing/J1103-5403/2020-02-18-04:07:47/2
+In this directory /fred/oz005/timing/J1103-5403/2020-02-18-04:07:47/2/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-02-29-21:33:38
+In this directory /fred/oz005/timing/J1103-5403/2020-02-29-21:33:38/3
+In this directory /fred/oz005/timing/J1103-5403/2020-02-29-21:33:38/3/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-03-12-22:59:16
+In this directory /fred/oz005/timing/J1103-5403/2020-03-12-22:59:16/3
+In this directory /fred/oz005/timing/J1103-5403/2020-03-12-22:59:16/3/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-03-27-15:36:26
+In this directory /fred/oz005/timing/J1103-5403/2020-03-27-15:36:26/3
+In this directory /fred/oz005/timing/J1103-5403/2020-03-27-15:36:26/3/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-04-09-17:08:05
+In this directory /fred/oz005/timing/J1103-5403/2020-04-09-17:08:05/2
+In this directory /fred/oz005/timing/J1103-5403/2020-04-09-17:08:05/2/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-04-29-22:17:54
+In this directory /fred/oz005/timing/J1103-5403/2020-04-29-22:17:54/3
+In this directory /fred/oz005/timing/J1103-5403/2020-04-29-22:17:54/3/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-05-10-18:09:25
+In this directory /fred/oz005/timing/J1103-5403/2020-05-10-18:09:25/3
+In this directory /fred/oz005/timing/J1103-5403/2020-05-10-18:09:25/3/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-05-11-18:05:31
+In this directory /fred/oz005/timing/J1103-5403/2020-05-11-18:05:31/2
+In this directory /fred/oz005/timing/J1103-5403/2020-05-11-18:05:31/2/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-05-22-19:02:23
+In this directory /fred/oz005/timing/J1103-5403/2020-05-22-19:02:23/3
+In this directory /fred/oz005/timing/J1103-5403/2020-05-22-19:02:23/3/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-06-05-18:00:48
+In this directory /fred/oz005/timing/J1103-5403/2020-06-05-18:00:48/3
+In this directory /fred/oz005/timing/J1103-5403/2020-06-05-18:00:48/3/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-06-18-17:07:43
+In this directory /fred/oz005/timing/J1103-5403/2020-06-18-17:07:43/3
+In this directory /fred/oz005/timing/J1103-5403/2020-06-18-17:07:43/3/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-07-01-16:32:34
+In this directory /fred/oz005/timing/J1103-5403/2020-07-01-16:32:34/3
+In this directory /fred/oz005/timing/J1103-5403/2020-07-01-16:32:34/3/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-07-19-11:23:55
+In this directory /fred/oz005/timing/J1103-5403/2020-07-19-11:23:55/3
+In this directory /fred/oz005/timing/J1103-5403/2020-07-19-11:23:55/3/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-08-01-10:53:11
+In this directory /fred/oz005/timing/J1103-5403/2020-08-01-10:53:11/4
+In this directory /fred/oz005/timing/J1103-5403/2020-08-01-10:53:11/4/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-08-15-10:08:19
+In this directory /fred/oz005/timing/J1103-5403/2020-08-15-10:08:19/3
+In this directory /fred/oz005/timing/J1103-5403/2020-08-15-10:08:19/3/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-08-29-14:43:41
+In this directory /fred/oz005/timing/J1103-5403/2020-08-29-14:43:41/3
+In this directory /fred/oz005/timing/J1103-5403/2020-08-29-14:43:41/3/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-09-16-15:35:16
+In this directory /fred/oz005/timing/J1103-5403/2020-09-16-15:35:16/2
+In this directory /fred/oz005/timing/J1103-5403/2020-09-16-15:35:16/2/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-09-29-15:33:24
+In this directory /fred/oz005/timing/J1103-5403/2020-09-29-15:33:24/4
+In this directory /fred/oz005/timing/J1103-5403/2020-09-29-15:33:24/4/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-10-11-08:50:06
+In this directory /fred/oz005/timing/J1103-5403/2020-10-11-08:50:06/3
+In this directory /fred/oz005/timing/J1103-5403/2020-10-11-08:50:06/3/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-10-23-06:45:39
+In this directory /fred/oz005/timing/J1103-5403/2020-10-23-06:45:39/4
+In this directory /fred/oz005/timing/J1103-5403/2020-10-23-06:45:39/4/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-11-04-06:04:40
+In this directory /fred/oz005/timing/J1103-5403/2020-11-04-06:04:40/4
+In this directory /fred/oz005/timing/J1103-5403/2020-11-04-06:04:40/4/1284
+creating soft links and directory
+In this directory /fred/oz005/timing/J1103-5403/2020-11-10-05:09:59
+In this directory /fred/oz005/timing/J1103-5403/2020-11-10-05:09:59/4
+In this directory /fred/oz005/timing/J1103-5403/2020-11-10-05:09:59/4/1284
+creating soft links and directory
+done
