@@ -1,27 +1,33 @@
 import os
+import numpy as np
+import subprocess as sproc 
+
 
 #Specify parent directory
-MainDir = "/fred/oz002/users/mmiles/templates/"
+MainDir = "/fred/oz002/users/mmiles/templates/2D_Templates"
 os.chdir(MainDir)
 
-for pulsar in os.listdir(MainDir):
-    if pulsar.startswith("J"):
-        #Change to requested pulsar directory
-        pulsar_dir = os.path.join(MainDir,pulsar)
-        os.chdir(pulsar_dir)
+meerpipe = '/fred/oz005/users/aparthas/MSP_Census/PTA'
+os.chdir(meerpipe)
 
-        dir_856 = os.path.join(pulsar_dir,"856")
-        dir_775 = os.path.join(pulsar_dir,"775")
-        dir_642 = os.path.join(pulsar_dir,"642") 
+for pulsar in os.listdir(meerpipe):
+    if pulsar.startswith('J'):
+        if not os.path.isdir(MainDir+'/'+pulsar):
+            os.mkdir(MainDir+'/'+pulsar)
+            pulsardir = os.path.join(meerpipe,pulsar)
+            for obs in os.listdir(pulsardir):
+                obsdir = os.path.join(pulsardir,obs)
+                os.chdir(obsdir)
+                for beam in os.listdir(obsdir):
+                    beamdir = os.path.join(obsdir,beam)
+                    os.chdir(beamdir)
+                    for freq in os.listdir(beamdir):
+                        freqdir = os.path.join(beamdir,freq)
+                        os.chdir(freqdir)
+                        p = sproc.Popen('cp *add '+MainDir+'/'+pulsar, shell=True)
+                        p.wait()
+                        print(pulsar+'added to the collection')
 
-        if os.path.isdir(dir_856):
-            os.chdir(dir_856)
-            os.mkdir(os.path.join(dir_856,"high_snr"))
 
-        if os.path.isdir(dir_775):
-            os.chdir(dir_775)
-            os.mkdir(os.path.join(dir_775,"high_snr"))
 
-        if os.path.isdir(dir_642):
-            os.chdir(dir_642)
-            os.mkdir(os.path.join(dir_642,"high_snr"))
+

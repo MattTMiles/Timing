@@ -32,7 +32,7 @@ folder_dir = os.path.join(pulsar_dir,folder)
 
 os.chdir(meerpipe_pulsar)
 for epoch in os.listdir(meerpipe_pulsar):
-    if not os.path.isfile(pol_profs+'/'+epoch+'.isdone'):
+    if not os.path.isfile(pulsar_dir+'/'+epoch+'.isdone'):
         epochdir = os.path.join(meerpipe_pulsar,epoch)
         os.chdir(epochdir)
         for beam in os.listdir(epochdir):
@@ -43,13 +43,13 @@ for epoch in os.listdir(meerpipe_pulsar):
                 os.chdir(freqdir)
                 decimated_dir = os.path.join(freqdir,'decimated')
                 os.chdir(decimated_dir)
-                os.system('cp *Tf4* '+pol_profs)
-                os.chdir(pol_profs)
+                os.system('cp *Tf4* '+pulsar_dir)
+                os.chdir(pulsar_dir)
                 os.system('touch '+epoch+'.isdone')
 
 
-os.chdir(pol_profs)
-for files in os.listdir(pol_profs):
+os.chdir(pulsar_dir)
+for files in os.listdir(pulsar_dir):
     if files.startswith('J'):
         if files.endswith('ar'):
             if not os.path.isfile(files+'.mohsen'):
@@ -146,6 +146,7 @@ p.wait()
 #Creates constant profile
 ##have to put the pythonpath in here because for some reason it's defaulting to the skylake one##
 p = sproc.call("~/.conda/envs/py2/bin/python /home/mmiles/soft/timing/ppalign.py -M metafile -T -I constant_profile."+pulsar+".Tp.paz.port -o metafile_average."+pulsar+".Tp.port --niter 2",shell=True)
+#print('metafile_average portrait is created')
 
 #Clean the metafile_average file
 p = sproc.call("~/.conda/envs/py2/bin/python /fred/oz005/users/mshamoha/federico/rfihunter_nogate.py 0 metafile_average."+pulsar+".Tp.port",shell=True)
@@ -176,6 +177,8 @@ p.wait()
 p=sproc.Popen("cp *ddisp "+template_repo,shell=True)
 p.wait()
 
+
+'''
 #Timing code from here
 timingdata = os.path.join(pulsar_dir,'256_highsnr')
 os.chdir(timingdata)
@@ -197,5 +200,5 @@ p = sproc.Popen("ls "+pulsar_dir+"/timing_256/*Tpf128_256 > timing_metafile3",sh
 p.wait()
 
 p = sproc.call("~/.conda/envs/py2/bin/python ~/soft/timing/pptoas.py -d timing_metafile3 -m "+pol_profs+"/2D*.spl -o 2D."+pulsar+".tim.Tf128p_256",shell=True)
-
+'''
 
