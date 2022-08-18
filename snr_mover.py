@@ -3,62 +3,44 @@ import subprocess
 from subprocess import Popen, PIPE
 import sys
 import errno
+import glob
+import numpy as np
 
 #Specify parent directory
-MainDir = "/fred/oz002/users/mmiles/templates/2D_Templates"
-os.chdir(MainDir)
+#MainDir = "/fred/oz002/users/mmiles/templates/2D_Templates"
+#os.chdir(MainDir)
+
+target = '/fred/oz002/users/mmiles/MSP_DR/subband_comps/tophalf_highsnr_psradd_check/'
 
 pulsar = sys.argv[1]
 
-#for pulsar in os.listdir(MainDir):
-#    if pulsar.startswith("J"):
-#Change to requested pulsar directory
-pulsar_dir = os.path.join(MainDir,pulsar)
+
+pulsar_dir = os.path.join(target,pulsar)
 os.chdir(pulsar_dir)
-try:
-    os.mkdir('256_highsnr')
-except:
-    pass
-high_snr = os.path.join(pulsar_dir,'256_highsnr')
-dir_256 = os.path.join(pulsar_dir,"timing_256")
 
-os.chdir(dir_256)
-for ints in os.listdir(dir_256):
-    if ints.startswith("2"):
-        snr = os.popen("psrstat -c snr=pdmp -c snr -Q "+ints+" | awk '{print $(NF)}'").read().split()
-        if float(snr[0]) > 100:
-            os.system("cp ./"+ints+" "+high_snr)
-            
-'''
-if os.path.isdir(dir_775):
-    os.chdir(dir_775)
-    try:
-        os.mkdir(os.path.join(dir_775,"high_snr"))
-    except OSError as exc:
-        if exc.errno != errno.EEXIST:
-            raise
-        pass
-    #os.system("rm 1D*")
-    os.chdir(dir_775)
-    for ints in os.listdir(dir_775):
-        if ints.startswith("1D"):
-            snr = os.popen("psrstat -c snr=pdmp -j FTp -c snr -Q "+ints+" | awk '{print $(NF)}'").read().split()
-            if float(snr[0]) > 40:
-                os.system("cp ./"+ints+" ./high_snr/")
+og_dir = '/fred/oz002/users/mmiles/MSP_DR/MSP_data/high_snr_psradd/'
+pulsar_og_dir = os.path.join(og_dir,pulsar)
 
-if os.path.isdir(dir_642):
-    os.chdir(dir_642)
-    try:
-        os.mkdir(os.path.join(dir_642,"high_snr"))
-    except OSError as exc:
-        if exc.errno != errno.EEXIST:
-            raise
-        pass
-    #os.system("rm 1D*")
-    os.chdir(dir_642)
-    for ints in os.listdir(dir_642):
-        if ints.startswith("1D"):
-            snr = os.popen("psrstat -c snr=pdmp -j FTp -c snr -Q "+ints+" | awk '{print $(NF)}'").read().split()
-            if float(snr[0]) > 40:
-                os.system("cp ./"+ints+" ./high_snr/")
-'''
+os.chdir(pulsar_og_dir)
+print(pulsar_og_dir)
+
+snrs =[]
+for arch in glob.glob("J*dly"):
+    print(arch)
+    snr = os.popen("psrstat -c snr=pdmp -c snr -j DFTp -Q "+arch+" | awk '{print $(NF)}'").read().split()
+    snr = float(snr[0])
+    print(snr)
+    snrs.append(snr)
+
+snrs = np.array(snrs)
+meansnr = snrs.mean()
+
+for arch in glob.glob("J*dly"):
+    snr = os.popen("psrstat -c snr=pdmp -c snr -j DFTp -Q "+arch+" | awk '{print $(NF)}'").read().split()
+    snr = float(snr[0])
+
+    if snr > meansnr:
+        os.symlink(os.path.join(pulsar_og_dir,arch), os.path.join(pulsar_dir,arch))
+
+
+
