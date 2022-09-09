@@ -382,7 +382,7 @@ if args.trim is True:
     ax[ii,j+1].xaxis.set_major_formatter(ticker.FixedFormatter(labels))
     
 
-    ax[0,0].legend(['Pulse Portraiture','Chosen Archive'],bbox_to_anchor=(0.25,1.6),fontsize=font)
+    ax[0,0].legend(['Chosen Archive','Pulse Portraiture'],bbox_to_anchor=(0.25,1.6),fontsize=font)
     ax[0,1].legend(['Residual'],bbox_to_anchor=(1,1.5),fontsize=font)
 
     fig.suptitle('{0}: Mean total $\chi_r^2$ = {1:.3f}'.format(pulsar,ave_redchi),fontsize=font)
